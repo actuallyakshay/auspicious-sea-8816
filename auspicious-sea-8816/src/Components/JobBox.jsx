@@ -17,10 +17,12 @@ import {
   ListItem,
   Text,
   VStack,
+  Spinner,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { TiArrowForward } from "react-icons/ti";
-import { DELETE_ACTION } from "../JobContext/action";
+import { DELETE_ACTION, SINGLE_ACTION } from "../JobContext/action";
 import { JobContext } from "../JobContext/JobContext";
 import SavedJobs from "../Molecules/Savedjobs";
 
@@ -43,14 +45,13 @@ export default function JobBox({ item }) {
 
   const { state, dispatch } = useContext(JobContext);
 
-  //   const handleClick = (val) => {
-  //     alert(`dfbdu`);
-  //     console.log(val);
-  //   };
+  const handleClick = (elem) => {
+    dispatch(SINGLE_ACTION(elem));
+  };
 
-  const handleDelete = (id) => {
-    dispatch(DELETE_ACTION(id));
-    console.log(id);
+  const handleDelete = (elem) => {
+    dispatch(DELETE_ACTION(elem));
+    console.log(elem);
   };
   return (
     <Flex
@@ -65,14 +66,22 @@ export default function JobBox({ item }) {
         <Text fontSize="xs" color="purple.700">
           {label}
         </Text>
-        <SavedJobs handleDelete={() => handleDelete(id)} />
+        <SavedJobs handleDelete={() => handleDelete(companyName)} />
       </Flex>
-      {/* <Button colorScheme="black" variant='ghost' width='200px' onClick={() => handleClick(item)}> */}
+
       <Link fontSize="lg" fontWeight="700">
-        <Box width="350px">{JobTitle}</Box>
-        {/* {JobTitle} */}
+        <Box
+          width="350px"
+          onClick={() => {
+            // setTimeout(() => {
+              handleClick(item);
+            // }, 1000);
+          }}
+        >
+          {JobTitle}
+        </Box>
       </Link>
-      {/* </Button> */}
+
       <Text>{companyName}</Text>
       <Text>{companyLocation}</Text>
       <Flex gap="1" flexDirection={{ base: "column", md: "row" }}>
@@ -145,7 +154,7 @@ export default function JobBox({ item }) {
         </ListItem>
       </List>
       <Text fontSize="14px" color="gray">
-        {date} {date_2} {" "}
+        {date} {date_2}{" "}
         <span style={{ fontWeight: "600", color: "rgb(115, 115, 115)" }}>
           {date_3}
         </span>

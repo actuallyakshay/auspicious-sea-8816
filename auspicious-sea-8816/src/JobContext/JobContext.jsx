@@ -13,6 +13,7 @@ export default function JobContextProvider({ children }) {
     isLoading: false,
     isError: false,
     temp: [],
+    singleJobData: {},
   });
 
   return (

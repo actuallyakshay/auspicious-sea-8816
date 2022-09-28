@@ -24,7 +24,7 @@ import { FcSearch } from "react-icons/fc";
 import { MdLocationCity } from "react-icons/md";
 import { JobContext } from "../JobContext/JobContext";
 
-export default function FindJobs({handleSearch}) {
+export default function FindJobs({ handleSearch }) {
   const [query, setQuery] = useState({ companyLocation: "" });
   const { state, dispatch } = useContext(JobContext);
 
@@ -67,11 +67,12 @@ export default function FindJobs({handleSearch}) {
             <InputRightElement children={<MdLocationCity />} />
           </InputGroup>
         </Box>
-        <Box width="fit-content">
+        <Box width={{ base: "200px",sm:'300px', md: "fit-content" }} >
           <Button
             bg="blue.600"
             color="white"
             onClick={() => handleSearch(query)}
+            width={{ base: "200px",sm:'300px', md: "fit-content" }}
           >
             Find Jobs
           </Button>

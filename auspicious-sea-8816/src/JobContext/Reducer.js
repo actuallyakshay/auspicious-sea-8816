@@ -31,6 +31,16 @@ export default function reducer(state, action) {
                 isError: false,
                 isLoading: false,
 
+            };
+        case "single":
+            return {
+                ...state,
+                singleJobData: action.payload,
+            }
+        case "find":
+            return {
+                ...state,
+                data: action.payload
             }
         default:
             return state
@@ -38,10 +48,10 @@ export default function reducer(state, action) {
 }
 
 
-function deleteFunc(data, id) {
+function deleteFunc(data, companyName) {
 
     const validate = data.filter((elem) => {
-        return elem.id != id
+        return elem.companyName != companyName
     })
 
     return validate

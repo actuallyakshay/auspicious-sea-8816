@@ -48,8 +48,8 @@ export const Navbar = () => {
             <Box px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <HStack spacing={8} alignItems={'center'}>
-                        <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indeed_logo.svg/768px-Indeed_logo.svg.png?20210916154409" w='100px' />
-                        <Image display={{ base: 'none', md: 'flex', lg: 'flex' }} src='https://d3fw5vlhllyvee.cloudfront.net/dist/header/ukraine_support.7ad2b5d444bc427dbc5d.png' w='40px' />
+                        <Image display={{ base: 'none', md: 'flex', lg: 'flex' }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indeed_logo.svg/768px-Indeed_logo.svg.png?20210916154409" w='100px' />
+                        <Image  src='https://d3fw5vlhllyvee.cloudfront.net/dist/header/ukraine_support.7ad2b5d444bc427dbc5d.png' w='40px' />
                         <HStack
                             as={'nav'}
                             spacing={.5}
