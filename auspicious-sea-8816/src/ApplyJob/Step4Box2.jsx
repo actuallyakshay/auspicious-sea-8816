@@ -15,16 +15,18 @@ import {
 import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Components/AuthContext/AuthContext";
 import { JobContext } from "../JobContext/JobContext";
 
 export default function Step4Box2() {
   const [dis, setDis] = useState(false);
   const toast = useToast();
 
-  const { state, dispatch } = useContext(JobContext);
+  const { state } = useContext(JobContext);
+
+  const { authState } = useContext(AuthContext);
 
   const { name, city, number } = state.personalinfo;
-  console.log("manojji",state)
 
   return (
     <Flex direction="column">
@@ -42,7 +44,7 @@ export default function Step4Box2() {
         <Divider />
         <Text fontSize="15px"> Email Address</Text>
         <Heading size="xs" width={{ base: "180px", sm: "250px", md: "250px" }}>
-          akshay.rajput1197@gmail.com
+          {authState.result.user.email}
         </Heading>
         <Text
           fontSize="12px"
@@ -69,7 +71,7 @@ export default function Step4Box2() {
         <Text fontSize="14px">
           How many years of total work experience do you have?
         </Text>
-        <Heading size="sm">{ state.exp}</Heading>
+        <Heading size="sm">{state.exp}</Heading>
       </VStack>
       <br />
       <Heading size="sm" color="blackAlpha.600">
