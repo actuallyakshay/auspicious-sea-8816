@@ -14,33 +14,33 @@ import {
 } from "@chakra-ui/react";
 import { BsApple } from "react-icons/bs";
 import { ArrowForwardIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import FacebookLogin from "./Facebook";
+import GoogleLogin from "./GoogleLogin";
+import PhoneLogin from "./PhoneLogin";
 
 export default function LoginFb() {
   return (
-      <>
-          
-      <Center mt='6' >
+    <>
+      <Center mt="6">
         <Stack spacing={3} align={"center"} maxW={"md"} w={"full"}>
           {/* Facebook */}
-          <Button w={"full"} colorScheme={"facebook"} leftIcon={<FaFacebook />}>
+          {/* <Button w={"full"} colorScheme={"facebook"} leftIcon={<FaFacebook />}>
             <Center>
               <Text>Continue with Facebook</Text>
             </Center>
-          </Button>
+          </Button> */}
+          <FacebookLogin />
 
           {/* Google */}
-          <Button w={"full"} variant={"outline"} leftIcon={<FcGoogle />}>
-            <Center>
-              <Text>Continue with Google</Text>
-            </Center>
-          </Button>
+          <GoogleLogin />
 
           {/* LinkedIn */}
-          <Button w={"full"} colorScheme="gray" leftIcon={<BsApple />}>
+          {/* <Button w={"full"} colorScheme="gray" leftIcon={<BsApple />}>
             <Center>
               <Text>Continue with Apple</Text>
             </Center>
-          </Button>
+          </Button> */}
+          <PhoneLogin />
         </Stack>
       </Center>
       <hr />
@@ -50,7 +50,7 @@ export default function LoginFb() {
         <Input type="email" />
       </FormControl>
       <br />
-      <Flex justifyContent='center'>
+      <Flex justifyContent="center">
         <Button colorScheme="yellow" w="50%" rightIcon={<ArrowRightIcon />}>
           Continue
         </Button>

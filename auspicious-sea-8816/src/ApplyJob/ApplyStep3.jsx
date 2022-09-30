@@ -14,14 +14,26 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import DataForBox1 from "../Components/DataForBox1";
-import Box1 from "../Components/SearchBox1";
 import Box2 from "../Components/SingleBox2";
-import SinglejobData from "../Components/SingleJobData";
-import { Navbar } from "../Organisms/Navbar";
+import { ADD_JOB_ACTION } from "../JobContext/action";
+import { JobContext } from "../JobContext/JobContext";
 
 export default function ApplyStep3() {
+  const [form, setFrom] = useState({ name: "", company: "" });
+  const { state, dispatch } = useContext(JobContext);
+
+  const handleJob = (e) => {
+    setFrom({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const Addjob = () => {
+    dispatch(ADD_JOB_ACTION(form));
+  };
+
   return (
     <Box bg="gray.50">
       <Flex
@@ -58,20 +70,34 @@ export default function ApplyStep3() {
             >
               <FormControl id="email">
                 <FormLabel>Job Title</FormLabel>
-                <Input type="text" />
+                <Input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleJob}
+                />
               </FormControl>
               <FormControl id="password">
                 <FormLabel>Company</FormLabel>
-                <Input type="text" />
+                <Input
+                  type="text"
+                  name="company"
+                  value={form.company}
+                  onChange={handleJob}
+                />
               </FormControl>
             </Stack>
           </Flex>
 
           <Flex mt="4">
             <Link to="/step4">
-              <Button colorScheme="facebook" rightIcon={<ArrowRightIcon />}>
-                Continue
-              </Button>
+            <Button
+              colorScheme="facebook"
+              rightIcon={<ArrowRightIcon />}
+              onClick={Addjob}
+            >
+              Continue
+            </Button>
             </Link>
           </Flex>
         </Container>

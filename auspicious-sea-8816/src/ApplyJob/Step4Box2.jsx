@@ -12,12 +12,19 @@ import {
   useToast,
   VStack,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { JobContext } from "../JobContext/JobContext";
 
 export default function Step4Box2() {
   const [dis, setDis] = useState(false);
   const toast = useToast();
+
+  const { state, dispatch } = useContext(JobContext);
+
+  const {name,city,number} = state.personalinfo;
+
   return (
     <Flex direction="column">
       <Heading size="md">
@@ -30,7 +37,7 @@ export default function Step4Box2() {
       <br />
       <VStack alignItems="flex-start" boxShadow="lg" p="5" borderRadius="10px">
         <Text fontSize="15px">Full Name</Text>
-        <Heading size="xs">Akshay Rajput</Heading>
+        <Heading size="xs">{name}</Heading>
         <Divider />
         <Text fontSize="15px"> Email Address</Text>
         <Heading size="xs" width={{ base: "180px", sm: "250px", md: "250px" }}>
@@ -48,7 +55,7 @@ export default function Step4Box2() {
         </Text>
         <Divider />
         <Text fontSize="15px">City,State</Text>
-        <Heading size="xs">Noida</Heading>
+              <Heading size="xs">{ city}</Heading>
         <Divider />
         <Text fontSize="15px">Phone Number</Text>
         <Heading size="xs">2384893249832</Heading>

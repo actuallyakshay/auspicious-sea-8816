@@ -15,7 +15,8 @@ export default function JobContextProvider({ children }) {
     singleJobData: {},
     saveData: [],
     personalinfo: {},
-    exp : "",
+    exp: "",
+    job: {},
   });
 
   return (

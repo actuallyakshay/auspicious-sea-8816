@@ -61,3 +61,17 @@ export const FORM_ACTION = (item) => {
         payload : item
     }
 }
+
+export const EXP_ACTION = (item) => {
+    return {
+        type: "exp",
+        payload : item,
+    }
+}
+
+export const ADD_JOB_ACTION = (item) => {
+    return {
+        type: "add_job",
+        payload :  item
+    }
+}

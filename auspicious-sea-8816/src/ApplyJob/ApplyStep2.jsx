@@ -14,16 +14,25 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import DataForBox1 from "../Components/DataForBox1";
 import Box1 from "../Components/SearchBox1";
 import Box2 from "../Components/SingleBox2";
 import SinglejobData from "../Components/SingleJobData";
-import { Navbar } from "../Organisms/Navbar";
+import { EXP_ACTION } from "../JobContext/action";
+import { JobContext } from "../JobContext/JobContext";
 
 export default function ApplyStep2() {
-  const [exp, setExp] = useState( "" );
+  const [exp, setExp] = useState("");
+  const { state, dispatch } = useContext(JobContext);
+
+  const handleExp = (exp) => {
+    dispatch(EXP_ACTION(exp));
+  
+  };
+  console.log("final" ,state.exp);
   return (
     <Box bg="gray.50">
       <Flex
@@ -54,8 +63,8 @@ export default function ApplyStep2() {
             width="auto"
             borderColor="black"
             mt="2"
-            value={age}
-            // onChnage = {()=>set}
+            value={exp}
+            onChange={(e) => setExp(e.target.value)}
           />
           <br />
           <br />
@@ -69,9 +78,13 @@ export default function ApplyStep2() {
           <Textarea borderColor="black" mt="2" resize="none" />
           <Flex mt="4">
             <Link to="/step3">
-              <Button colorScheme="facebook" rightIcon={<ArrowRightIcon />}>
-                Continue
-              </Button>
+            <Button
+              colorScheme="facebook"
+              rightIcon={<ArrowRightIcon />}
+              onClick={() => handleExp(exp)}
+            >
+              Continue
+            </Button>
             </Link>
           </Flex>
         </Container>

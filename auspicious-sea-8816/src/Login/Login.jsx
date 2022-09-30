@@ -1,6 +1,6 @@
 import { Box, Text, Container, Heading, Image } from "@chakra-ui/react";
 import Footer from "../Organisms/Footer";
-import LoginFb from "./LoginFb";
+import LoginFb from "./LoginCredentials";
 
 export default function Login() {
   return (

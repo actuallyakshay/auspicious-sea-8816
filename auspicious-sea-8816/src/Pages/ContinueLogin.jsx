@@ -10,7 +10,7 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { Link, NavLink } from "react-router-dom";
 import Footer from "../Organisms/Footer";
-import LoginFb from "./LoginFb";
+import LoginFb from "../Login/LoginCredentials";
 
 export default function ContinueLogin() {
   return (

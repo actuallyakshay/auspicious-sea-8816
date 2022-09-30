@@ -7,13 +7,20 @@ import {
   Heading,
   Progress,
   Text,
+  useConst,
   useToast,
   VStack,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { JobContext } from "../JobContext/JobContext";
 import Step4Box2 from "./Step4Box2";
 
 export default function ApplyStep4() {
-    
+    const { state, dispatch } = useContext(JobContext);
+    const {JobTitle,companyLocation} = state.singleJobData
+
+  console.log("efew",state);
+
   return (
     <>
       <br />
@@ -34,9 +41,9 @@ export default function ApplyStep4() {
           mb="5"
           borderRadius="10px"
         >
-          <Heading size="sm">Packaging Design and Operations Manager</Heading>
+          <Heading size="sm">Job Title : {JobTitle}</Heading>
           <Text color="gray" fontSize="12px">
-            The New Ways B.V. - NSEZ, Noida - 201301, Uttar Pradesh
+            Company Loaction : {companyLocation}
           </Text>
         </VStack>
         <Container

@@ -5,7 +5,7 @@ import LandingPage from './Organisms/LandingPage';
 import { Navbar } from './Organisms/Navbar';
 import AllRoutes from './Pages/AllRoutes';
 import ContinueLogin from './Pages/ContinueLogin';
-import Login from './Pages/Login';
+import Login from './Login/Login';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       {/* <LandingPage /> */}
       {/* <ContinueLogin /> */}
       {/* <Login /> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <AllRoutes />
       {/* <FileUpload/> */}
     </div>

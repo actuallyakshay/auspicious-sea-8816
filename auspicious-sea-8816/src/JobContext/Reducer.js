@@ -53,7 +53,8 @@ export default function reducer(state, action) {
         case "saved_job":
             return {
                 ...state,
-                saveData: [...state.saveData, action.payload]
+                saveData: [...state.saveData, action.payload],
+                singleJobData: action.payload
             };
         case "del_action":
             return {
@@ -64,6 +65,16 @@ export default function reducer(state, action) {
             return {
                 ...state,
                 personalinfo: action.payload
+            };
+        case "exp":
+            return {
+                ...state,
+                exp: action.payload
+            };
+        case "add_job":
+            return {
+                ...state,
+                job: action.payload
             }
         default:
             return state
