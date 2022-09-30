@@ -40,7 +40,30 @@ export default function reducer(state, action) {
         case "find":
             return {
                 ...state,
-                data: action.payload
+                data: action.payload,
+                isLoading: false
+            };
+        case "filter1":
+            return {
+                ...state,
+                data: action.payload,
+                isLoading: false,
+                isError: false
+            };
+        case "saved_job":
+            return {
+                ...state,
+                saveData: [...state.saveData, action.payload]
+            };
+        case "del_action":
+            return {
+                ...state,
+                saveData: delfunct(state.saveData, action.payload)
+            };
+        case "addForm":
+            return {
+                ...state,
+                personalinfo: action.payload
             }
         default:
             return state
@@ -56,4 +79,12 @@ function deleteFunc(data, companyName) {
 
     return validate
 
+}
+
+
+function delfunct(data, JobTitle) {
+    const validate = data.filter((elem) => {
+        return elem.JobTitle !== JobTitle
+    })
+    return validate
 }

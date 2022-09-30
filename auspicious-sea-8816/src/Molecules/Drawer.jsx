@@ -11,6 +11,7 @@ import {
   Checkbox,
   Textarea,
   Flex,
+  useToast,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { AddIcon, WarningIcon } from "@chakra-ui/icons";
@@ -20,6 +21,7 @@ export default function DrawerPopup() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [dis, setDis] = useState(true);
   const firstField = useRef();
+  const toast = useToast();
   const handleClick = (e) => {
     setDis(!dis);
   };
@@ -76,7 +78,19 @@ export default function DrawerPopup() {
           <br />
 
           <DrawerFooter borderTopWidth="1px">
-            <Button disabled={dis ? true : false} colorScheme="facebook">
+            <Button
+              disabled={dis ? true : false}
+              onClick={() =>
+                toast({
+                  title: "Sorry for the inconvenience",
+                  description: "We're looking forward to resolve this issue ",
+                  status: "success",
+                  duration: 9000,
+                  isClosable: true,
+                })
+              }
+              colorScheme="facebook"
+            >
               Report to Indeed
             </Button>
           </DrawerFooter>

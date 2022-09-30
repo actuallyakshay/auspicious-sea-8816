@@ -21,8 +21,9 @@ import { useContext } from "react";
 import { useState } from "react";
 
 import { FcSearch } from "react-icons/fc";
-import { MdLocationCity } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
 import { JobContext } from "../JobContext/JobContext";
+import FilterJob from "./FilteringSection";
 
 export default function FindJobs({ handleSearch }) {
   const [query, setQuery] = useState({ companyLocation: "" });
@@ -64,21 +65,21 @@ export default function FindJobs({ handleSearch }) {
               name="companyLocation"
               onChange={handleChange}
             />
-            <InputRightElement children={<MdLocationCity />} />
+            <InputRightElement  />
           </InputGroup>
         </Box>
-        <Box width={{ base: "200px",sm:'300px', md: "fit-content" }} >
+        <Box width={{ base: "200px", sm: "300px", md: "fit-content" }}>
           <Button
             bg="blue.600"
             color="white"
             onClick={() => handleSearch(query)}
-            width={{ base: "200px",sm:'300px', md: "fit-content" }}
+            width={{ base: "200px", sm: "300px", md: "fit-content" }}
           >
             Find Jobs
           </Button>
         </Box>
       </Flex>
-      <VStack marginTop={5} mb={12}>
+      <VStack marginTop={5} mb={3}>
         <HStack>
           <Heading letterSpacing={0.5} size="sm" color="blue.600">
             Post your resume –{" "}
@@ -91,6 +92,8 @@ export default function FindJobs({ handleSearch }) {
           </Heading>{" "}
           <span>Your next hire is here</span>
         </HStack>
+        <br />
+        <FilterJob />
       </VStack>
 
       <hr />
