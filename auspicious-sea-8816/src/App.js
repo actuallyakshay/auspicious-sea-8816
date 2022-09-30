@@ -1,13 +1,22 @@
 
 import './App.css';
+import FileUpload from './ApplyJob/FileUpload';
 import LandingPage from './Organisms/LandingPage';
 import { Navbar } from './Organisms/Navbar';
+import AllRoutes from './Pages/AllRoutes';
+import ContinueLogin from './Pages/ContinueLogin';
+import Login from './Pages/Login';
 
 function App() {
 
   return (
     <div >
-      <LandingPage />
+      {/* <LandingPage /> */}
+      {/* <ContinueLogin /> */}
+      {/* <Login /> */}
+      <Navbar />
+      <AllRoutes />
+      {/* <FileUpload/> */}
     </div>
   );
 }

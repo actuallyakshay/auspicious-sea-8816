@@ -32,13 +32,17 @@ export default function Jobs() {
   const { state, dispatch } = useContext(JobContext);
   const a = Object.keys(state.singleJobData).length;
   let [searchParams, setSearchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
 
   const limit = 10;
 
   useEffect(() => {
-    setSearchParams({ page, limit });
-  }, [page,limit]);
+    let obj = { page };
+    if (limit) {
+      obj = { ...obj, limit };
+    }
+    setSearchParams(obj);
+  }, [page, limit]);
 
   useEffect(() => {
     getData();
@@ -57,6 +61,7 @@ export default function Jobs() {
 
   const handleSearch = (query) => {
     const { companyLocation } = query;
+    dispatch(LOADING_ACTION);
     HomepageDataCall({
       page,
       limit: 10,
@@ -104,7 +109,7 @@ export default function Jobs() {
                 return <SinglejobData />;
               })()
             ) : (
-              <Image src="https://i.ibb.co/dsZX5h1/logo.png" alt="x-x" />
+              <Image src="https://i.ibb.co/dsZX5h1/logo.png" alt="x-x" position='sticky' top='130px' />
             )}
           </GridItem>
         </Grid>

@@ -50,10 +50,11 @@ export default function Footer() {
     <>
 
       <Box
-        bg={useColorModeValue("gray.50", "gray.900")}
+       bg='#fff7f7'
         color={useColorModeValue("gray.700", "gray.200")}
+       
       >
-        <Container as={Stack} maxW={"6xl"} py={10}>
+        <Container as={Stack} maxW={"6xl"} py={10} bg='#fff7f7'>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={2}>
             <Stack align={"flex-start"}>
               <Link href={"#"}>Career Advice</Link>

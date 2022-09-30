@@ -32,3 +32,32 @@ export const FIND_ACTION = (elem) => {
         payload: elem
     }
 }
+
+
+export const FILTER_ACTION = (elem) => {
+    return {
+        type: "filter1",
+        payload: elem
+    }
+}
+
+export const SAVED_JOB = (elem) => {
+    return {
+        type: "saved_job",
+        payload: elem
+    }
+}
+
+export const DEL_ACTION = (item) => {
+    return {
+        type: "del_action",
+        payload: item
+    }
+}
+
+export const FORM_ACTION = (item) => {
+    return {
+        type: "addForm",
+        payload : item
+    }
+}

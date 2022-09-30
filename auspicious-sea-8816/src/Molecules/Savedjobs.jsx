@@ -16,7 +16,7 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 
-export default function SavedJobs({ handleDelete }) {
+export default function SavedJobs({ handleDelete , handleSave }) {
   return (
     <Menu>
       <MenuButton
@@ -29,7 +29,7 @@ export default function SavedJobs({ handleDelete }) {
         <MenuItem onClick={handleDelete} icon={<MinusIcon />}>
           Not Intrested
         </MenuItem>
-        <MenuItem icon={<ExternalLinkIcon />}>Saved Job</MenuItem>
+        <MenuItem icon={<ExternalLinkIcon />} onClick={handleSave}>Saved Job</MenuItem>
       </MenuList>
     </Menu>
   );

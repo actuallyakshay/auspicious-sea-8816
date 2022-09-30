@@ -27,7 +27,7 @@ import { BsFillHeartFill } from "react-icons/bs";
 import { MdReviews } from "react-icons/md";
 
 import { FaUserAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function MenuFunc() {
   return (
@@ -46,49 +46,60 @@ export default function MenuFunc() {
             backgroundColor: "rgb(230, 238, 255)",
           }}
         />
-        <MenuList>
-          <MenuItem icon={<AddIcon />} command="⌘T">
-            <Heading size="sm">Email : {""}</Heading>
+        <MenuList
+          w="20"
+          bg="white"
+          h="55vh"
+          py="5"
+          pb="5"
+          borderRadius="none"
+          boxShadow="xl"
+        >
+          <MenuItem icon={<AddIcon />}>
+            <Heading mb="5px" size="sm">
+              Email : {""}
+            </Heading>
           </MenuItem>
           <MenuItem
             fontSize="16px"
             fontWeight="500"
             size="xs"
+            mb="5px"
             icon={<AiTwotoneMail />}
-            command="⌘P"
           >
             Profile
           </MenuItem>
-
+          <NavLink to='/savedjob'>
+            <MenuItem
+              mb="5px"
+              fontSize="16px"
+              fontWeight="500"
+              icon={<BsFillHeartFill />}
+            >
+              My Jobs
+            </MenuItem>
+          </NavLink>
           <MenuItem
-            fontSize="16px"
-            fontWeight="500"
-            icon={<BsFillHeartFill />}
-            command="⌘⇧"
-          >
-            My Jobs
-          </MenuItem>
-          <MenuItem
+            mb="5px"
             fontSize="16px"
             fontWeight="500"
             icon={<MdReviews />}
-            command="⌘R"
           >
             My reviews
           </MenuItem>
           <MenuItem
+            mb="5px"
             fontSize="16px"
             fontWeight="500"
             icon={<AiOutlineMail />}
-            command="⌘E"
           >
             Email Setting
           </MenuItem>
           <MenuItem
+            mb="5px"
             fontSize="16px"
             fontWeight="500"
             icon={<AiFillSetting />}
-            command="⌘S"
           >
             Setting
           </MenuItem>
@@ -96,7 +107,7 @@ export default function MenuFunc() {
             fontSize="16px"
             fontWeight="500"
             icon={<AiFillQuestionCircle />}
-            command="⌘H"
+            mb="5px"
           >
             Help Center
           </MenuItem>
