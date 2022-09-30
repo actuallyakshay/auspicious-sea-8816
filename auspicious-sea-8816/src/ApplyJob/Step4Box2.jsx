@@ -23,7 +23,8 @@ export default function Step4Box2() {
 
   const { state, dispatch } = useContext(JobContext);
 
-  const {name,city,number} = state.personalinfo;
+  const { name, city, number } = state.personalinfo;
+  console.log("manojji",state)
 
   return (
     <Flex direction="column">
@@ -55,10 +56,10 @@ export default function Step4Box2() {
         </Text>
         <Divider />
         <Text fontSize="15px">City,State</Text>
-              <Heading size="xs">{ city}</Heading>
+        <Heading size="xs">{city}</Heading>
         <Divider />
         <Text fontSize="15px">Phone Number</Text>
-        <Heading size="xs">2384893249832</Heading>
+        <Heading size="xs">{number}</Heading>
       </VStack>
       <br />
       <Heading size="sm" color="blackAlpha.600">
@@ -68,7 +69,7 @@ export default function Step4Box2() {
         <Text fontSize="14px">
           How many years of total work experience do you have?
         </Text>
-        <Heading size="sm">1</Heading>
+        <Heading size="sm">{ state.exp}</Heading>
       </VStack>
       <br />
       <Heading size="sm" color="blackAlpha.600">

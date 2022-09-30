@@ -7,6 +7,7 @@ import {
   SimpleGrid,
   Spinner,
   Image,
+  Container,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -75,7 +76,7 @@ export default function Jobs() {
     <>
       <FindJobs handleSearch={handleSearch} />
       <JobFeed />
-      <Box bg="#faf9f8" mt="10">
+      <Box bg="#faf9f8" mt="10" display={{ base: "none", md: "block" }}>
         <Grid
           gridTemplateColumns={{
             base: "repeat(1,1fr)",
@@ -109,13 +110,65 @@ export default function Jobs() {
                 return <SinglejobData />;
               })()
             ) : (
-              <Image src="https://i.ibb.co/dsZX5h1/logo.png" alt="x-x" position='sticky' top='130px' />
+              <Image
+                src="https://i.ibb.co/dsZX5h1/logo.png"
+                alt="x-x"
+                position="sticky"
+                top="130px"
+              />
             )}
           </GridItem>
         </Grid>
         <Flex justifyContent="center" gap={2} mt="10">
           <Pegination handleClick={handleClick} page={page} />
         </Flex>
+      </Box>
+      {/* fjwcj /// for mobile phones */}
+      <Box bg="#faf9f8" mt="10" display={{ lg: "none", md: "none" }}>
+        <Grid
+          gridTemplateColumns="1fr"
+          bg="white"
+          rowGap="10"
+          width="75vw"
+          margin="auto"
+        >
+          <GridItem>
+            {a !== 0 ? (
+              (function abc() {
+                setTimeout(() => {
+                  {
+                    <Spinner
+                      thickness="4px"
+                      speed="0.65s"
+                      emptyColor="gray.200"
+                      color="blue.500"
+                      size="xl"
+                    />;
+                  }
+                }, 2000);
+                return <SinglejobData />;
+              })()
+            ) : (
+              <Image
+                src="https://i.ibb.co/dsZX5h1/logo.png"
+                alt="x-x"
+                position="sticky"
+                top="130px"
+              />
+            )}
+          </GridItem>
+        </Grid>
+        <br />
+        <Container ml="5">
+          <Grid gridTemplateColumns="1fr" gap={3}>
+            {state.data?.map((item) => {
+              return <JobBox key={item.id} item={item} />;
+            })}
+          </Grid>
+          <Flex justifyContent="center" gap={2} mt="10">
+            <Pegination handleClick={handleClick} page={page} />
+          </Flex>
+        </Container>
       </Box>
     </>
   );

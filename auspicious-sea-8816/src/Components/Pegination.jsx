@@ -1,3 +1,4 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 
 export default function Pegination({ page, handleClick }) {
@@ -6,11 +7,15 @@ export default function Pegination({ page, handleClick }) {
       <Button
         disabled={page === 1 ? true : false}
         onClick={() => handleClick(-1)}
+        colorScheme="facebook"
+        leftIcon={<ChevronLeftIcon />}
       >
         Prev
       </Button>
-      <Button>{page}</Button>
-      <Button onClick={() => handleClick(1)}>next</Button>
+      <Button colorScheme="facebook">{page}</Button>
+      <Button rightIcon={<ChevronRightIcon />} colorScheme="facebook" onClick={() => handleClick(1)}>
+        next
+      </Button>
     </>
   );
 }

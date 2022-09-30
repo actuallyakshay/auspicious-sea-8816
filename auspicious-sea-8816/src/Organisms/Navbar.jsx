@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import {
   Box,
   Flex,
@@ -24,11 +24,15 @@ import {
   Text,
   Heading,
   Divider,
+  Center,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { RiNotification4Fill, RiMessage2Fill } from "react-icons/ri";
 import MenuFunc from "./Menu";
 import { NavLink } from "react-router-dom";
+import AvatarProflie from "./AvatarProfile";
+import { RiLoginCircleFill } from "react-icons/ri";
+import { AuthContext } from "../Components/AuthContext/AuthContext";
 
 const links = [
   { path: "/", title: "Find jobs" },
@@ -36,9 +40,12 @@ const links = [
   { path: "/salaryguide", title: "Salary Guide" },
 ];
 
-
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const { authState, authDispatch } = useContext(AuthContext);
+
+  console.log("number" , authState.result)
 
   return (
     <>
@@ -97,12 +104,19 @@ export const Navbar = () => {
             >
               <RiNotification4Fill />
             </Flex>
-            <MenuFunc />
+            { !authState.isAuth ? null : <MenuFunc />}
             <Stack direction="row" h="60px" py={4}>
               <Divider orientation="vertical" />
-              <Text display={{ base: "none", md: "flex" }}>
-                Employers/Post Job
-              </Text>
+              <Center>
+                <NavLink to="/login" display={{ base: "none", md: "flex" }}>
+                  {!authState.isAuth ? (
+                    <Avatar
+                      size="md"
+                      src="https://i.ibb.co/chJ05gQ/30172734-BYf6cc-Kw.png"
+                    />
+                  ) : null}
+                </NavLink>
+              </Center>
             </Stack>
           </Flex>
           <IconButton

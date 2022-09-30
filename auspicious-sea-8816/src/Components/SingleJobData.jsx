@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 
 export default function SinglejobData() {
   return (
-    <Box position="sticky" top="20px" border="1px solid grey" borderRadius='5px'>
+    <Box position="sticky" top="20px" border="1px solid gray" borderRadius='5px'>
       <Box1 />
       <Box2 />
     </Box>

@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   Center,
+  Divider,
   Flex,
   FormControl,
   FormLabel,
@@ -17,43 +18,25 @@ import { ArrowForwardIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import FacebookLogin from "./Facebook";
 import GoogleLogin from "./GoogleLogin";
 import PhoneLogin from "./PhoneLogin";
+import { Link, NavLink } from "react-router-dom";
 
 export default function LoginFb() {
   return (
     <>
-      <Center mt="6">
-        <Stack spacing={3} align={"center"} maxW={"md"} w={"full"}>
-          {/* Facebook */}
-          {/* <Button w={"full"} colorScheme={"facebook"} leftIcon={<FaFacebook />}>
-            <Center>
-              <Text>Continue with Facebook</Text>
-            </Center>
-          </Button> */}
+      <Stack spacing={3} align={"center"} maxW={"md"} w={"full"}>
+        <br />
           <FacebookLogin />
-
-          {/* Google */}
-          <GoogleLogin />
-
-          {/* LinkedIn */}
-          {/* <Button w={"full"} colorScheme="gray" leftIcon={<BsApple />}>
-            <Center>
-              <Text>Continue with Apple</Text>
-            </Center>
-          </Button> */}
-          <PhoneLogin />
+          <Box pt="3">
+            <GoogleLogin />
+          </Box>
+          <br />
         </Stack>
-      </Center>
-      <hr />
-      <br />
-      <FormControl id="email" isRequired>
-        <FormLabel>Email address</FormLabel>
-        <Input type="email" />
-      </FormControl>
-      <br />
       <Flex justifyContent="center">
-        <Button colorScheme="yellow" w="50%" rightIcon={<ArrowRightIcon />}>
-          Continue
-        </Button>
+        <Link to='/phone'>
+          <Button colorScheme="green"  w={{base:"250px" ,lg:"400px"}} rightIcon={<ArrowRightIcon />}>
+            Login with phone number
+          </Button>
+        </Link>
       </Flex>
     </>
   );

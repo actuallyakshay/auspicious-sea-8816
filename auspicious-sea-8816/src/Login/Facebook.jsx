@@ -37,10 +37,10 @@ function FacebookLogin() {
 
   return (
     <Box>
-      {/* <IconButton onClick={handleSubmit} variant='outline' size='lg' icon={<ImFacebook2 color='#4267B2' size='28px' />} /> */}
+     
       <Button
         onClick={handleSubmit}
-        w={"full"}
+        w={{base:"250px" ,lg:"400px"}}
         colorScheme={"facebook"}
         leftIcon={<FaFacebook />}
       >

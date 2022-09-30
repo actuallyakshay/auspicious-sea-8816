@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const HomepageDataCall = (params = {}) => {
     console.log(params.query, "aksjay")
-    return axios.get(`http://localhost:8080/jobs`, {
+    return axios.get(`https://actuallyakshay.onrender.com/jobs`, {
         params: {
             _page: params.page,
             _limit: params.limit,

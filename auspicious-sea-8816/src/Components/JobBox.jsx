@@ -62,10 +62,10 @@ export default function JobBox({ item }) {
   };
 
   return (
-    <Box onClick={() => handleClick(item)}>
+    <Box onClick={() => handleClick(item)} w={{base:"310px" , sm:"450px"}} ml={{base:'-5px' , md:'0'}}>
       <Flex
         p="5"
-        pr={{ base: "3", sm: "20" }}
+
         border="1px solid gray"
         borderRadius="10px"
         flexDirection="column"
@@ -82,7 +82,7 @@ export default function JobBox({ item }) {
         </Flex>
 
         <Link fontSize="lg" fontWeight="700">
-          <Box width="350px">{JobTitle}</Box>
+          <Box width={{base : '280px' , sm :'380px'}} >{JobTitle}</Box>
         </Link>
 
         <Text>{companyName}</Text>
@@ -100,6 +100,7 @@ export default function JobBox({ item }) {
             bg="blackAlpha.100"
             color="blackAlpha.700"
             fontWeight="700"
+            w={{base:'fit-content'}}
           >
             {" "}
             <CheckCircleIcon />

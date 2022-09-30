@@ -68,18 +68,20 @@ export default function ApplyStep3() {
               boxShadow={"md"}
               p="6"
             >
-              <FormControl id="email">
+              <FormControl id="email" isRequired>
                 <FormLabel>Job Title</FormLabel>
                 <Input
+                  isRequired
                   type="text"
                   name="name"
                   value={form.name}
                   onChange={handleJob}
                 />
               </FormControl>
-              <FormControl id="password">
+              <FormControl id="password" isRequired>
                 <FormLabel>Company</FormLabel>
                 <Input
+                  isRequired
                   type="text"
                   name="company"
                   value={form.company}

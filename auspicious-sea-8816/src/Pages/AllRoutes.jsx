@@ -4,8 +4,10 @@ import ApplyStep2 from "../ApplyJob/ApplyStep2";
 import ApplyStep3 from "../ApplyJob/ApplyStep3";
 import ApplyStep4 from "../ApplyJob/ApplyStep4";
 import FileUpload from "../ApplyJob/FileUpload";
+import Login from "../Login/Login";
 import Home from "../RoutePage/Home";
 import SavedJobsRoute from "../RoutePage/SavedJobs";
+import ContinueLogin from "../Login/LoginViaPhoneNumber";
 
 export default function AllRoutes() {
   return (
@@ -17,6 +19,8 @@ export default function AllRoutes() {
       <Route path="/step2" element={<ApplyStep2 />}></Route>
       <Route path="/step3" element={<ApplyStep3 />}></Route>
       <Route path="/step4" element={<ApplyStep4 />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/phone" element={<ContinueLogin />}></Route>
     </Routes>
   );
 }

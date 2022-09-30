@@ -16,6 +16,7 @@ import {
   MenuDivider,
   IconButton,
   Heading,
+  Avatar,
 } from "@chakra-ui/react";
 import {
   AiTwotoneMail,
@@ -28,22 +29,39 @@ import { MdReviews } from "react-icons/md";
 
 import { FaUserAlt } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../Components/AuthContext/AuthContext";
 
 export default function MenuFunc() {
+  const { authState, authDispatch } = useContext(AuthContext);
+
+  const handleSignout = () => {
+    authDispatch({ type: "SIGN_OUT" });
+  }
+
   return (
     <>
       <Menu>
         <MenuButton
           as={IconButton}
           aria-label="Options"
-          icon={<FaUserAlt />}
+          icon={
+            authState.isAuth ? (
+              <Avatar
+                name="Dan Abrahmov"
+                src={`${authState.result.user.photoURL}`}
+              />
+            ) : (
+              <FaUserAlt />
+            )
+          }
           variant="none"
           borderRadius="none"
           py={7}
           _hover={{
             textDecoration: "none",
-            borderBottom: "2px solid navy",
-            backgroundColor: "rgb(230, 238, 255)",
+            // borderBottom: "2px solid navy",
+            // backgroundColor: "rgb(230, 238, 255)",
           }}
         />
         <MenuList
@@ -55,9 +73,9 @@ export default function MenuFunc() {
           borderRadius="none"
           boxShadow="xl"
         >
-          <MenuItem icon={<AddIcon />}>
-            <Heading mb="5px" size="sm">
-              Email : {""}
+          <MenuItem>
+            <Heading mb="5px" size="xs" color="balckAlpha.600">
+              {authState.isAuth ? authState.result.user.email || authState.result.user.phoneNumber : ""}
             </Heading>
           </MenuItem>
           <MenuItem
@@ -69,7 +87,7 @@ export default function MenuFunc() {
           >
             Profile
           </MenuItem>
-          <NavLink to='/savedjob'>
+          <NavLink to="/savedjob">
             <MenuItem
               mb="5px"
               fontSize="16px"
@@ -108,8 +126,9 @@ export default function MenuFunc() {
             fontWeight="500"
             icon={<AiFillQuestionCircle />}
             mb="5px"
+            onClick={handleSignout}
           >
-            Help Center
+            Sign Out
           </MenuItem>
         </MenuList>
       </Menu>

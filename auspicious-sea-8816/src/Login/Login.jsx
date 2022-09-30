@@ -4,8 +4,11 @@ import LoginFb from "./LoginCredentials";
 
 export default function Login() {
   return (
-    <Box w="full" bg=" #fff7f7">
-      <Box justifyContent="center" display="flex" py="50px">
+    <Box
+      w="full"
+      bg=" #fff7f7"
+    >
+      <Box justifyContent="center" display="flex" py="20px">
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indeed_logo.svg/768px-Indeed_logo.svg.png?20210916154409"
           w="100px"
@@ -13,9 +16,9 @@ export default function Login() {
       </Box>
       <Container
         border="1px solid gray"
-        borderRadius="5px"
+        borderRadius="9px"
         justifyContent="center"
-        w="36%"
+        w={{ base: "95%", md: "36%" }}
         p="6"
         bg="white"
       >
@@ -45,9 +48,9 @@ export default function Login() {
           </Text>
           <LoginFb />
         </Box>
-          </Container>
-          <br />
-          <br />
+      </Container>
+      <br />
+      <br />
       <Box bg="#fff7f7">
         <Footer />
       </Box>

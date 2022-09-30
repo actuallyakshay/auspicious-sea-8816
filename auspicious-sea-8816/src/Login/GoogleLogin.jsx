@@ -1,38 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, IconButton, Button, Text, Center } from "@chakra-ui/react";
 import { FaFacebook } from "react-icons/fa";
 import { auth } from "../firebaseConfig/firebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../Components/AuthContext/AuthContext";
+import {
+  ERROR_ACTION,
+  LOADING,
+  SUCCESS_ACTION,
+} from "../Components/AuthContext/action";
 
 function GoogleLogin() {
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider(auth);
+  const { authState, authDispatch } = useContext(AuthContext);
 
   function handleSubmit() {
+    authDispatch(LOADING);
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        // console.log(token)
-        // The signed-in user info.
-        const user = result.user;
-        console.log(result);
-        // navigate('/');
-        // ...
+        console.log("result",result.user.photoURL);
+        authDispatch(SUCCESS_ACTION(result));
+        navigate('/');
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         alert("something went wrong");
-        // ...
+        authDispatch(ERROR_ACTION);
       });
   }
 
@@ -40,7 +41,7 @@ function GoogleLogin() {
     <Box>
       <Button
         onClick={handleSubmit}
-        w={"full"}
+        w={{ base: "250px", lg: "400px" }}
         variant={"outline"}
         leftIcon={<FcGoogle />}
       >

@@ -9,7 +9,6 @@ export default function LandingPage() {
   return (
     <>
       <Jobs />
-      {/* <SavedJobPage /> */}
       <HindiLine />
       <Footer />
     </>

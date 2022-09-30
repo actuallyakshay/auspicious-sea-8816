@@ -1,8 +1,6 @@
 import { useReducer } from "react";
 import { createContext } from "react";
-
-import reducer from "./Reducer";
-
+import  reducer  from "./Reducer";
 export const JobContext = createContext();
 
 export default function JobContextProvider({ children }) {

@@ -10,12 +10,13 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { Link, NavLink } from "react-router-dom";
 import Footer from "../Organisms/Footer";
-import LoginFb from "../Login/LoginCredentials";
+import LoginFb from "./LoginCredentials";
+import PhoneLogin from "./PhoneLogin";
 
 export default function ContinueLogin() {
   return (
     <Box w="full" bg=" #fff7f7">
-      <Box justifyContent="center" display="flex" py="50px">
+      <Box justifyContent="center" display="flex" py="30px">
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indeed_logo.svg/768px-Indeed_logo.svg.png?20210916154409"
           w="100px"
@@ -25,23 +26,16 @@ export default function ContinueLogin() {
         border="1px solid gray"
         borderRadius="5px"
         justifyContent="center"
-        w="36%"
+        w={{ base:"90%" , md:"36%"}}
         p="6"
         bg="white"
       >
         <Box>
           <Heading size="md" mb="2">
-            Welcome to Indeed
+            Login with phone number
           </Heading>
           <Text fontSize="18px" color="gray.600">
-            Keey you account safe.{" "}
-          </Text>
-          <br />
-          <Text fontSize="13px" color="gray">
-            Continue as <span>email :</span>{" "}
-            <Text as="ins" color="blue">
-              (not you)
-            </Text>
+            Keep you account safe.{" "}
           </Text>
           <br />
           <Text fontSize="13px" color="gray">
@@ -51,15 +45,10 @@ export default function ContinueLogin() {
             address.
           </Text>
           <br />
-          <Button w={"full"} variant={"outline"} leftIcon={<FcGoogle />}>
-            <Center>
-              <Text>Continue with Google</Text>
-            </Center>
-          </Button>
-          <br />
+          <PhoneLogin />
           <br />
           <Text fontSize="14px" as="ins" color="blue">
-            <Link>login with a password instead</Link>
+            <Link to='/login'>login with email instead !</Link>
           </Text>
         </Box>
       </Container>
