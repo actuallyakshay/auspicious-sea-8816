@@ -159,7 +159,7 @@ export default function Jobs() {
           </GridItem>
         </Grid>
         <br />
-        <Container ml="5">
+        <Container ml="9">
           <Grid gridTemplateColumns="1fr" gap={3}>
             {state.data?.map((item) => {
               return <JobBox key={item.id} item={item} />;

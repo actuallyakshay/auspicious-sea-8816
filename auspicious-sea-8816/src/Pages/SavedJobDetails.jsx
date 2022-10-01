@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { RiBuildingFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import { DEL_ACTION } from "../JobContext/action";
 import { JobContext } from "../JobContext/JobContext";
 export default function SavedJobDetails({ elem }) {
@@ -54,7 +55,9 @@ export default function SavedJobDetails({ elem }) {
       </Flex>
       <Flex p="3" gap="3" flexDirection={{ base: "column", md: "row" }}>
         <Button colorScheme="facebook" variant="solid">
+          <Link to='/step1'>
           Apply now
+          </Link>  
         </Button>
         <Button colorScheme="facebook" variant="outline" fontWeight="700">
           Update Status

@@ -8,6 +8,9 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useContext } from "react";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsHeartFill } from "react-icons/bs";
+import { FaGrinHearts, FaHeart, FaHeartBroken } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { JobContext } from "../JobContext/JobContext";
 import AlertInfo from "../Molecules/AlertInfo";
@@ -76,9 +79,19 @@ export default function SaveDataButton({ handleSaveData }) {
             width="20px"
             colorScheme="gray"
             variant="solid"
-            onClick={() => handleSaveData(state.singleJobData)}
+              onClick={() => {
+                toast({
+                  position: "top",
+                  render: () => (
+                    <Text borderRadius="10px" color="white" p={3} bg="green">
+                      job saved successfully ! Go to the saved section
+                    </Text>
+                  ),
+                })
+                handleSaveData(state.singleJobData)
+              }}
           >
-            <StarIcon />
+              <StarIcon />
           </Button>
         )}
       </Flex>

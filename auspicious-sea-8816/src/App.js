@@ -11,11 +11,8 @@ function App() {
 
   return (
     <div >
-      {/* <ContinueLogin /> */}
       <Navbar />
-      {/* <Login /> */}
       <AllRoutes />
-      {/* <FileUpload/> */}
     </div>
   );
 }

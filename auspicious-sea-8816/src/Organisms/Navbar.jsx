@@ -45,7 +45,7 @@ export const Navbar = () => {
 
   const { authState, authDispatch } = useContext(AuthContext);
 
-  console.log("number" , authState.result)
+  console.log("number", authState.result);
 
   return (
     <>
@@ -59,10 +59,12 @@ export const Navbar = () => {
                 w="100px"
               />
             </NavLink>
-            <Image
-              src="https://d3fw5vlhllyvee.cloudfront.net/dist/header/ukraine_support.7ad2b5d444bc427dbc5d.png"
-              w="40px"
-            />
+            <NavLink to="/">
+              <Image
+                src="https://d3fw5vlhllyvee.cloudfront.net/dist/header/ukraine_support.7ad2b5d444bc427dbc5d.png"
+                w="40px"
+              />
+            </NavLink>  
             <HStack
               as={"nav"}
               spacing={3}
@@ -104,7 +106,7 @@ export const Navbar = () => {
             >
               <RiNotification4Fill />
             </Flex>
-            { !authState.isAuth ? null : <MenuFunc />}
+            {!authState.isAuth ? null : <MenuFunc />}
             <Stack direction="row" h="60px" py={4}>
               <Divider orientation="vertical" />
               <Center>
