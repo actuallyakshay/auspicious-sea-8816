@@ -7,7 +7,7 @@ export default function HindiLine() {
       <br />
       <Flex justifyContent="center">
         <Text fontSize="14px">
-          Indeed <Link>हिंदी </Link>में भी ऑफ़र करता है
+          Indeed <Text  as='ins' color='blue'>हिंदी में भी ऑफ़र करता है </Text>
         </Text>
       </Flex>
       <br />

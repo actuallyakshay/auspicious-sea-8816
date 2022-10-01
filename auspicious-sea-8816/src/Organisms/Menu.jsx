@@ -37,7 +37,7 @@ export default function MenuFunc() {
 
   const handleSignout = () => {
     authDispatch({ type: "SIGN_OUT" });
-  }
+  };
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function MenuFunc() {
             authState.isAuth ? (
               <Avatar
                 name="Dan Abrahmov"
-                src={`${authState.result.user.photoURL}`}
+                src={`${authState?.result?.user?.photoURL}`}
               />
             ) : (
               <FaUserAlt />
@@ -75,7 +75,10 @@ export default function MenuFunc() {
         >
           <MenuItem>
             <Heading mb="5px" size="xs" color="balckAlpha.600">
-              {authState.isAuth ? authState.result.user.email || authState.result.user.phoneNumber : ""}
+              {authState.isAuth
+                ? authState?.result?.user?.email ||
+                  authState?.result?.user?.phoneNumber
+                : ""}
             </Heading>
           </MenuItem>
           <MenuItem

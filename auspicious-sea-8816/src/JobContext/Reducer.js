@@ -59,7 +59,7 @@ export default function reducer(state, action) {
         case "del_action":
             return {
                 ...state,
-                saveData: delfunct(state.saveData, action.payload)
+                saveData: delfunct(state.saveData, action.payload) 
             };
         case "addForm":
             return {
@@ -99,3 +99,4 @@ function delfunct(data, JobTitle) {
     })
     return validate
 }
+

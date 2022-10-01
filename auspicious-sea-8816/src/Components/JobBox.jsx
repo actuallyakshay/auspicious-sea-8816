@@ -72,9 +72,9 @@ export default function JobBox({ item }) {
         gap="2"
       >
         <Flex justifyContent="space-between">
-          <Text fontSize="xs" color="purple.700">
+          <Heading as='i' fontSize="sm" color="red.600">
             {label}
-          </Text>
+          </Heading>
           <SavedJobs
             handleDelete={() => handleDelete(companyName)}
             handleSave={() => handleSave(item)}

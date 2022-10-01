@@ -23,6 +23,7 @@ import {
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/AuthContext/AuthContext";
+import { BellIcon } from "@chakra-ui/icons";
 
 const shadow =
   "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px";
@@ -37,6 +38,7 @@ function PhoneLogin() {
   let navigate = useNavigate();
 
   const { authState, authDispatch } = useContext(AuthContext);
+  console.log("authsatet", authState);
 
   function handleInputMobNum(e) {
     setMobNum(e.target.value);
@@ -51,7 +53,6 @@ function PhoneLogin() {
       {
         size: "invisible",
         callback: (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
         },
         "expired-callback": () => {
           console.log("solve again");
@@ -64,15 +65,18 @@ function PhoneLogin() {
   function handleNumSubmit() {
     if (mobNum.length < 10) return;
     genrateRecapta();
+    authDispatch({ type: "loading" });
     signInWithPhoneNumber(auth, `+91${mobNum}`, window.recaptchaVerifier)
       .then((res) => {
         window.confirmationResult = res;
         window.id = res.verificationId;
         if (res.verificationId) setTakeOtp(true);
+        authDispatch({ type: "success" });
       })
       .catch((error) => {
         alert("Something went wrong!");
         setTakeOtp(false);
+        authDispatch({ type: "error" });
         console.log(error);
       });
   }
@@ -87,6 +91,7 @@ function PhoneLogin() {
           const user = result.user;
           authDispatch({ type: "success", payload: result });
           navigate("/");
+          
         })
         .catch((error) => {
           alert("wrong otp");
@@ -124,10 +129,13 @@ function PhoneLogin() {
             </FormErrorMessage>
           </FormControl>
           <Button
+            isLoading={authState.isLoading}
             onClick={handleNumSubmit}
-            mt="1"
+            mb="3"
             w="full"
-            colorScheme="facebook"
+            loadingText='Getting Otp'
+           rightIcon={<BellIcon />}
+            colorScheme='facebook'
           >
             Send OTP
           </Button>
@@ -145,7 +153,12 @@ function PhoneLogin() {
             />
             <FormHelperText>Enter valid 6 digit number</FormHelperText>
           </FormControl>
-          <Button onClick={handleInputOtp} w="full" colorScheme="green">
+          <Button
+            isLoading={authState.isLoading}
+            onClick={handleInputOtp}
+            w="full"
+            colorScheme="green"
+          >
             Sign In
           </Button>
         </Box>

@@ -3,7 +3,7 @@
 export default function reducer(state, action) {
 
     switch (action.type) {
-        case "laoding":
+        case "loading":
             return {
                 ...state,
                 isLoading: true,

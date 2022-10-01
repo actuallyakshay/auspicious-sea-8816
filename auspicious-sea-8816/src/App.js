@@ -6,6 +6,7 @@ import { Navbar } from './Organisms/Navbar';
 import AllRoutes from './Pages/AllRoutes';
 import ContinueLogin from './Login/LoginViaPhoneNumber';
 import Login from './Login/Login';
+import PopularCompanies from './Pages/PopularCompanies';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <div >
       <Navbar />
       <AllRoutes />
+      {/* <PopularCompanies /> */}
     </div>
   );
 }

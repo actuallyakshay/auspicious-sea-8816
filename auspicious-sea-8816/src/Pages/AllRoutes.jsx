@@ -8,6 +8,7 @@ import Login from "../Login/Login";
 import Home from "../RoutePage/Home";
 import SavedJobsRoute from "../RoutePage/SavedJobs";
 import ContinueLogin from "../Login/LoginViaPhoneNumber";
+import PopularCompanies from "./PopularCompanies";
 
 export default function AllRoutes() {
   return (
@@ -21,6 +22,7 @@ export default function AllRoutes() {
       <Route path="/step4" element={<ApplyStep4 />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/phone" element={<ContinueLogin />}></Route>
+      <Route path="/popular" element={<PopularCompanies />}></Route>
     </Routes>
   );
 }

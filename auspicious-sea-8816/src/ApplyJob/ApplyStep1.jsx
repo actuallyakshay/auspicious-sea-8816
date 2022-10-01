@@ -75,7 +75,7 @@ export default function ApplyStep1() {
               p="6"
             >
               <FormControl id="email" isRequired>
-                <FormLabel>Enter your name</FormLabel>
+                <FormLabel >Enter your name</FormLabel>
                 <Input
                   type="text"
                   isRequired

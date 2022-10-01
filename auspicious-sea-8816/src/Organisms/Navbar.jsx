@@ -36,7 +36,7 @@ import { AuthContext } from "../Components/AuthContext/AuthContext";
 
 const links = [
   { path: "/", title: "Find jobs" },
-  { path: "/companyreviews", title: "Company reviews" },
+  { path: "/popular", title: "Company reviews" },
   { path: "/salaryguide", title: "Salary Guide" },
 ];
 
@@ -137,7 +137,7 @@ export const Navbar = () => {
             pb={4}
             display={{ md: "none" }}
           >
-            <Stack as={"nav"} spacing={-5}>
+            <Stack as={"nav"} spacing={5} >
               {links.map((elem) => (
                 <Tabs>
                   <TabList>

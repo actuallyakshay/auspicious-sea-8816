@@ -8,8 +8,8 @@ import {
   Link,
   VisuallyHidden,
   chakra,
-    useColorModeValue,
-    Image
+  useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 
@@ -48,13 +48,11 @@ const SocialButton = ({ children, label, href }) => {
 export default function Footer() {
   return (
     <>
-
       <Box
-       bg='gray.50'
+        bg="gray.50"
         color={useColorModeValue("gray.700", "gray.200")}
-       
       >
-        <Container as={Stack} maxW={"6xl"} py={10} bg='gray.50'>
+        <Container as={Stack} maxW={"6xl"} py={10} bg="gray.50">
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={2}>
             <Stack align={"flex-start"}>
               <Link href={"#"}>Career Advice</Link>
@@ -78,9 +76,19 @@ export default function Footer() {
 
             <Stack align={"flex-start"}>
               <ListHeader>Install App</ListHeader>
-                          {/* <AppStoreBadge /> */}
-                          <Image src="https://1000logos.net/wp-content/uploads/2020/08/apple-app-store-logo-768x265.jpg" width='150px' height='47px' />
-                          <Image src='https://www.designpieces.com/wp-content/uploads/2016/02/google-play-badge-300x89.png' width='150px'/>
+              <Link href="https://apps.apple.com/us/app/indeed-job-search/id309735670">
+                <Image
+                  src="https://1000logos.net/wp-content/uploads/2020/08/apple-app-store-logo-768x265.jpg"
+                  width="150px"
+                  height="47px"
+                />
+              </Link>
+              <Link href="https://play.google.com/store/apps/details?id=com.indeed.android.jobsearch&hl=en_IN&gl=US">
+                <Image
+                  src="https://www.designpieces.com/wp-content/uploads/2016/02/google-play-badge-300x89.png"
+                  width="150px"
+                />
+              </Link>
             </Stack>
           </SimpleGrid>
         </Container>
@@ -101,13 +109,24 @@ export default function Footer() {
           >
             <Text>© 2022 Indeed</Text>
             <Stack direction={"row"} spacing={6}>
-              <SocialButton label={"Twitter"} href={"#"}>
+              <SocialButton
+                label={"Twitter"}
+                href={"https://twitter.com/indeed?lang=en"}
+              >
                 <FaTwitter />
               </SocialButton>
-              <SocialButton label={"YouTube"} href={"#"}>
+              <SocialButton
+                label={"YouTube"}
+                href={"https://www.youtube.com/user/indeedjobs"}
+              >
                 <FaYoutube />
               </SocialButton>
-              <SocialButton label={"Instagram"} href={"#"}>
+              <SocialButton
+                label={"Instagram"}
+                href={
+                  "https://www.facebook.com/Indeed.co.in/?brand_redir=5944538380"
+                }
+              >
                 <FaInstagram />
               </SocialButton>
             </Stack>

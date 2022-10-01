@@ -24,6 +24,8 @@ import { FcSearch } from "react-icons/fc";
 import { FaHome } from "react-icons/fa";
 import { JobContext } from "../JobContext/JobContext";
 import FilterJob from "./FilteringSection";
+import { SearchIcon } from "@chakra-ui/icons";
+import { MdLocationPin } from "react-icons/md";
 
 export default function FindJobs({ handleSearch }) {
   const [query, setQuery] = useState({ companyLocation: "" });
@@ -49,18 +51,18 @@ export default function FindJobs({ handleSearch }) {
         <Box>
           <InputGroup
             variant="outline"
-            width={{ base: "200px", sm: "300px", md: "400px" }}
+            width={{ base: "250px", sm: "300px", md: "400px" }}
           >
             <InputLeftAddon children="What" fontWeight="600" />
-            <Input type="tel" placeholder="Job title, keywords or company" />
+            <Input type="tel" placeholder="Enter the Job title" />
             <InputRightElement children={<FcSearch />} />
           </InputGroup>
         </Box>
         <Box>
-          <InputGroup width={{ base: "200px", sm: "300px", md: "400px" }}>
+          <InputGroup width={{ base: "250px", sm: "300px", md: "400px" }}>
             <InputLeftAddon children="Where" fontWeight="600" />
             <Input
-              placeholder="City, State or Pincode"
+              placeholder="Enter the city name"
               type="text"
               name="companyLocation"
               onChange={handleChange}
@@ -68,12 +70,13 @@ export default function FindJobs({ handleSearch }) {
             <InputRightElement  />
           </InputGroup>
         </Box>
-        <Box width={{ base: "200px", sm: "300px", md: "fit-content" }}>
+        <Box width={{ base: "250px", sm: "300px", md: "fit-content" }}>
           <Button
-            bg="blue.600"
-            color="white"
+             colorScheme='facebook'
+            // color="white"
+            rightIcon={<SearchIcon />}
             onClick={() => handleSearch(query)}
-            width={{ base: "200px", sm: "300px", md: "fit-content" }}
+            width={{ base: "250px", sm: "300px", md: "fit-content" }}
           >
             Find Jobs
           </Button>

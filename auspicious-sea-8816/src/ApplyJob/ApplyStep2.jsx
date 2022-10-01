@@ -6,6 +6,8 @@ import {
   CircularProgressLabel,
   Container,
   Flex,
+  FormControl,
+  FormLabel,
   Heading,
   HStack,
   Image,
@@ -30,9 +32,8 @@ export default function ApplyStep2() {
 
   const handleExp = (exp) => {
     dispatch(EXP_ACTION(exp));
-  
   };
-  console.log("final" ,state.exp);
+  console.log("final", state.exp);
   return (
     <Box bg="gray.50">
       <Flex
@@ -54,18 +55,26 @@ export default function ApplyStep2() {
             Questions from The New Ways B.V.
           </Heading>
           <br />
-          <Heading fontSize="md" color="blackAlpha.700" fontWeight="600">
-            How many years of total work experience do you have?
-          </Heading>
-          <Input
-            type="number"
-            htmlSize={4}
-            width="auto"
-            borderColor="black"
-            mt="2"
-            value={exp}
-            onChange={(e) => setExp(e.target.value)}
-          />
+          <FormControl isRequired>
+            <FormLabel
+              isRequired
+              fontSize="md"
+              color="blackAlpha.700"
+              fontWeight="600"
+            >
+              How many years of total work experience do you have?
+            </FormLabel>
+            <Input
+              type="number"
+              htmlSize={4}
+              width="auto"
+              borderColor="black"
+              mt="2"
+              value={exp}
+              onChange={(e) => setExp(e.target.value)}
+              isRequired
+            />
+          </FormControl>
           <br />
           <br />
           <Heading fontSize="md" color="blackAlpha.700" fontWeight="600">
@@ -78,13 +87,13 @@ export default function ApplyStep2() {
           <Textarea borderColor="black" mt="2" resize="none" />
           <Flex mt="4">
             <Link to="/step3">
-            <Button
-              colorScheme="facebook"
-              rightIcon={<ArrowRightIcon />}
-              onClick={() => handleExp(exp)}
-            >
-              Continue
-            </Button>
+              <Button
+                colorScheme="facebook"
+                rightIcon={<ArrowRightIcon />}
+                onClick={() => handleExp(exp)}
+              >
+                Continue
+              </Button>
             </Link>
           </Flex>
         </Container>
