@@ -148,7 +148,7 @@ export default function PopularCompanies() {
       <br />
       <br />
       <Image
-        w="100vw"
+        w="full"
         src="https://i.ibb.co/T8nj8GH/Screenshot-2022-10-01-203426.png"
       />
       <br />

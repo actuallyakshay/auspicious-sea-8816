@@ -60,14 +60,12 @@ export default function MenuFunc() {
           py={7}
           _hover={{
             textDecoration: "none",
-            // borderBottom: "2px solid navy",
-            // backgroundColor: "rgb(230, 238, 255)",
           }}
         />
         <MenuList
           w="20"
           bg="white"
-          h="55vh"
+          // h="55vh"
           py="5"
           pb="5"
           borderRadius="none"

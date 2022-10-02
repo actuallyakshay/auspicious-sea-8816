@@ -54,7 +54,7 @@ export default function FindJobs({ handleSearch }) {
             width={{ base: "250px", sm: "300px", md: "400px" }}
           >
             <InputLeftAddon children="What" fontWeight="600" />
-            <Input type="tel" placeholder="Enter the Job title" />
+            <Input type="tel" placeholder="Enter Job title" />
             <InputRightElement children={<FcSearch />} />
           </InputGroup>
         </Box>
@@ -62,7 +62,7 @@ export default function FindJobs({ handleSearch }) {
           <InputGroup width={{ base: "250px", sm: "300px", md: "400px" }}>
             <InputLeftAddon children="Where" fontWeight="600" />
             <Input
-              placeholder="Enter the city name"
+              placeholder="City name (Keep first letter Capital)"
               type="text"
               name="companyLocation"
               onChange={handleChange}
