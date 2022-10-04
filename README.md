@@ -1,4 +1,4 @@
-###### ![Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indeed_logo.svg/768px-Indeed_logo.svg.png?20210916154409)
+###### ![Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indeed_logo.svg/768px-Indeed_logo.svg.png?20210916154409 | width=100)
 
 
 ### Hello World ! Welcome to Indeed.com 
