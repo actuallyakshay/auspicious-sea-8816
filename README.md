@@ -14,10 +14,13 @@ We also have a whole section of our website dedicated to Company Pages, where yo
 
 
 
-## 🔗 Live Deployed URL
-[indeed netlify link](https://actuallyakshayindeed.netlify.app/?page=1&limit=10)
 
-[indeed vercel link](https://indeedclone-five.vercel.app/?page=1&limit=10)
+## 🔗 Live Deployed URL
+indeed netlify link : https://actuallyakshayindeed.netlify.app/?page=1&limit=10
+
+indeed vercel link : https://indeedclone-five.vercel.app/?page=1&limit=10
+
+
 
 
 ## landing Page
