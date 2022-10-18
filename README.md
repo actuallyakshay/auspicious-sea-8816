@@ -1,4 +1,5 @@
-###### ![Logo](https://i.ibb.co/XFSFw0g/Screenshot-2022-10-04-124003.png )
+
+<a href="https://ibb.co/bvC6n2p"><img src="https://i.ibb.co/1XP0xdH/Indeed-logo-svg.png" alt="Indeed-logo-svg" border="0" width='300px' /></a>
 
 
 ### Hello World ! Welcome to Indeed.com 
