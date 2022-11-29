@@ -38,8 +38,6 @@ export default function Jobs() {
 
   const limit = 10;
 
-  console.log("url", process.env.REACT_APP_URL);
-
   useEffect(() => {
     let obj = { page };
     if (limit) {
@@ -55,7 +53,7 @@ export default function Jobs() {
   const getData = () => {
     dispatch(LOADING_ACTION);
     axios
-      .get(`${process.env.REACT_APP_URL}?page=${page}&limit=${10}`)
+      .get(`${process.env.REACT_APP_BASE_URL}?page=${page}&limit=${10}`)
       .then((res) => dispatch(SUCCESS_ACTION(res.data)))
       .catch(() => dispatch(ERROR_ACTION));
   };
@@ -71,7 +69,7 @@ export default function Jobs() {
       axios
         .get(
           `${
-            process.env.REACT_APP_URL
+            process.env.REACT_APP_BASE_URL
           }?where=${companyLocation}&what=${JobTitle}&page=${page}&limit=${10}`
         )
         .then((res) => {
@@ -82,7 +80,7 @@ export default function Jobs() {
       axios
         .get(
           `${
-            process.env.REACT_APP_URL
+            process.env.REACT_APP_BASE_URL
           }?where=${companyLocation}&page=${page}&limit=${10}`
         )
         .then((res) => {
@@ -94,7 +92,7 @@ export default function Jobs() {
       axios
         .get(
           `${
-            process.env.REACT_APP_URL
+            process.env.REACT_APP_BASE_URL
           }?what=${JobTitle}&page=${page}&limit=${10}`
         )
         .then((res) => {
