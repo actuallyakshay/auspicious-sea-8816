@@ -2,7 +2,7 @@
 <a href="https://ibb.co/bvC6n2p"><img src="https://i.ibb.co/1XP0xdH/Indeed-logo-svg.png" alt="Indeed-logo-svg" border="0" width='300px' /></a>
 
 
-### Hello World ! Welcome to Indeed.com 
+### Hello World ! Welcome to Indeed.com (A Full Stack Project)
 ###### This is the clone of indeed.com Which I was assigned in my React Construct week.
 
  
