@@ -52,7 +52,8 @@ export default function Jobs() {
 
   const getData = () => {
     dispatch(LOADING_ACTION);
-    HomepageDataCall({ page, limit })
+    axios
+      .get(`https://dead-pinafore-wasp.cyclic.app/job?page=${page}&limit=${10}`)
       .then((res) => dispatch(SUCCESS_ACTION(res.data)))
       .catch(() => dispatch(ERROR_ACTION));
   };
@@ -67,27 +68,32 @@ export default function Jobs() {
       dispatch(LOADING_ACTION);
       axios
         .get(
-          `http://localhost:8080/job?where=${companyLocation}&what=${JobTitle}&page=${page}&limit=${10}`
+          `https://dead-pinafore-wasp.cyclic.app/job?where=${companyLocation}&what=${JobTitle}&page=${page}&limit=${10}`
         )
         .then((res) => {
           dispatch(FIND_ACTION(res.data));
         });
     } else if (companyLocation != "") {
+      dispatch(LOADING_ACTION);
       axios
         .get(
-          `http://localhost:8080/job?where=${companyLocation}&page=${page}&limit=${10}`
+          `https://dead-pinafore-wasp.cyclic.app/job?where=${companyLocation}&page=${page}&limit=${10}`
         )
         .then((res) => {
           dispatch(FIND_ACTION(res.data));
-        });
+        })
+        .catch(() => dispatch(ERROR_ACTION));
     } else if (JobTitle != "") {
+      dispatch(LOADING_ACTION);
       axios
         .get(
-          `http://localhost:8080/job?where=${companyLocation}&page=${page}&limit=${10}`
+          `https://dead-pinafore-wasp.cyclic.app/job?what=${JobTitle}&page=${page}&limit=${10}`
         )
         .then((res) => {
           dispatch(FIND_ACTION(res.data));
-        });
+          // console.log(res.data);
+        })
+        .catch(() => dispatch(ERROR_ACTION));
     }
   };
 
