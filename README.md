@@ -106,6 +106,9 @@ indeed vercel link : https://indeedclone-five.vercel.app/
 
 **Server:** 
 - Firebase
+- Nodejs
+- expressJS
+- mongoDB
 
 **Server for API:** 
 - cyclic.sh
