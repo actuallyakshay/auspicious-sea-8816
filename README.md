@@ -2,7 +2,7 @@
 <a href="https://ibb.co/bvC6n2p"><img src="https://i.ibb.co/1XP0xdH/Indeed-logo-svg.png" alt="Indeed-logo-svg" border="0" width='300px' /></a>
 
 
-### Hello World ! Welcome to Indeed.com 
+### Hello World ! Welcome to Indeed.com (A Full Stack Project)
 ###### This is the clone of indeed.com Which I was assigned in my React Construct week.
 
  
@@ -17,9 +17,8 @@ We also have a whole section of our website dedicated to Company Pages, where yo
 
 
 ## 🔗 Live Deployed URL
-indeed netlify link : https://actuallyakshayindeed.netlify.app/?page=1&limit=10
 
-indeed vercel link : https://indeedclone-five.vercel.app/?page=1&limit=10
+indeed vercel link : https://indeedclone-five.vercel.app/
 
 
 
@@ -107,6 +106,9 @@ indeed vercel link : https://indeedclone-five.vercel.app/?page=1&limit=10
 
 **Server:** 
 - Firebase
+- Nodejs
+- expressJS
+- mongoDB
 
 **Server for API:** 
 - cyclic.sh
