@@ -38,6 +38,8 @@ export default function Jobs() {
 
   const limit = 10;
 
+  console.log("url", process.env.REACT_APP_URL);
+
   useEffect(() => {
     let obj = { page };
     if (limit) {
@@ -53,7 +55,7 @@ export default function Jobs() {
   const getData = () => {
     dispatch(LOADING_ACTION);
     axios
-      .get(`https://dead-pinafore-wasp.cyclic.app/job?page=${page}&limit=${10}`)
+      .get(`${process.env.REACT_APP_URL}?page=${page}&limit=${10}`)
       .then((res) => dispatch(SUCCESS_ACTION(res.data)))
       .catch(() => dispatch(ERROR_ACTION));
   };
@@ -68,7 +70,9 @@ export default function Jobs() {
       dispatch(LOADING_ACTION);
       axios
         .get(
-          `https://dead-pinafore-wasp.cyclic.app/job?where=${companyLocation}&what=${JobTitle}&page=${page}&limit=${10}`
+          `${
+            process.env.REACT_APP_URL
+          }?where=${companyLocation}&what=${JobTitle}&page=${page}&limit=${10}`
         )
         .then((res) => {
           dispatch(FIND_ACTION(res.data));
@@ -77,7 +81,9 @@ export default function Jobs() {
       dispatch(LOADING_ACTION);
       axios
         .get(
-          `https://dead-pinafore-wasp.cyclic.app/job?where=${companyLocation}&page=${page}&limit=${10}`
+          `${
+            process.env.REACT_APP_URL
+          }?where=${companyLocation}&page=${page}&limit=${10}`
         )
         .then((res) => {
           dispatch(FIND_ACTION(res.data));
@@ -87,7 +93,9 @@ export default function Jobs() {
       dispatch(LOADING_ACTION);
       axios
         .get(
-          `https://dead-pinafore-wasp.cyclic.app/job?what=${JobTitle}&page=${page}&limit=${10}`
+          `${
+            process.env.REACT_APP_URL
+          }?what=${JobTitle}&page=${page}&limit=${10}`
         )
         .then((res) => {
           dispatch(FIND_ACTION(res.data));

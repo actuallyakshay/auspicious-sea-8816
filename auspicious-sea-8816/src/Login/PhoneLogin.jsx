@@ -87,7 +87,7 @@ function PhoneLogin() {
       window.confirmationResult
         .confirm(otp)
         .then((result) => {
-          console.log(result);
+          console.log({result});
           const user = result.user;
           authDispatch({ type: "success", payload: result });
           navigate("/");

@@ -29,7 +29,7 @@ export default function FilterJob({ page }) {
     const value = e.target.value;
     dispatch(LOADING_ACTION);
     axios
-      .get(`https://dead-pinafore-wasp.cyclic.app/job?q=${value}&page=${page}&limit=${10}`)
+      .get(`${process.env.REACT_APP_URL}?q=${value}&page=${page}&limit=${10}`)
       .then((res) => dispatch(FILTER_ACTION(res.data)));
   };
   return (
