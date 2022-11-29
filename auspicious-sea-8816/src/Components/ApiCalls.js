@@ -16,6 +16,5 @@ export const HomepageDataCall = (params = {}) => {
             date_3:params.date_3,
         }
     })
-
 };
 

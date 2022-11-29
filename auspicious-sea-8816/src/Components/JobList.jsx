@@ -28,6 +28,7 @@ import JobFeed from "./JobFeed";
 import Pegination from "./Pegination";
 import SinglejobData from "./SingleJobData";
 import { useSearchParams } from "react-router-dom";
+import axios from "axios";
 
 export default function Jobs() {
   const { state, dispatch } = useContext(JobContext);
@@ -47,7 +48,7 @@ export default function Jobs() {
 
   useEffect(() => {
     getData();
-  }, [page]);
+  }, [page, dispatch]);
 
   const getData = () => {
     dispatch(LOADING_ACTION);
@@ -61,20 +62,40 @@ export default function Jobs() {
   };
 
   const handleSearch = (query) => {
-    const { companyLocation } = query;
-    dispatch(LOADING_ACTION);
-    HomepageDataCall({
-      page,
-      limit: 10,
-      companyLocation: companyLocation,
-    }).then((res) => dispatch(FIND_ACTION(res.data)));
+    const { companyLocation, JobTitle } = query;
+    if (companyLocation != "" && JobTitle != "") {
+      dispatch(LOADING_ACTION);
+      axios
+        .get(
+          `http://localhost:8080/job?where=${companyLocation}&what=${JobTitle}&page=${page}&limit=${10}`
+        )
+        .then((res) => {
+          dispatch(FIND_ACTION(res.data));
+        });
+    } else if (companyLocation != "") {
+      axios
+        .get(
+          `http://localhost:8080/job?where=${companyLocation}&page=${page}&limit=${10}`
+        )
+        .then((res) => {
+          dispatch(FIND_ACTION(res.data));
+        });
+    } else if (JobTitle != "") {
+      axios
+        .get(
+          `http://localhost:8080/job?where=${companyLocation}&page=${page}&limit=${10}`
+        )
+        .then((res) => {
+          dispatch(FIND_ACTION(res.data));
+        });
+    }
   };
 
   return state.isLoading ? (
     <Loading />
   ) : (
     <>
-      <FindJobs handleSearch={handleSearch} />
+      <FindJobs page={page} handleSearch={handleSearch} />
       <JobFeed />
       <Box bg="#faf9f8" mt="10" display={{ base: "none", md: "block" }}>
         <Grid

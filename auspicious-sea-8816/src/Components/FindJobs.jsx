@@ -27,14 +27,13 @@ import FilterJob from "./FilteringSection";
 import { SearchIcon } from "@chakra-ui/icons";
 import { MdLocationPin } from "react-icons/md";
 
-export default function FindJobs({ handleSearch }) {
-  const [query, setQuery] = useState({ companyLocation: "" });
+export default function FindJobs({ handleSearch, page }) {
+  const [query, setQuery] = useState({ companyLocation: "", JobTitle: "" });
   const { state, dispatch } = useContext(JobContext);
 
   const handleChange = (e) => {
     setQuery({ ...query, [e.target.name]: e.target.value });
   };
-  // console.log(query);
 
   return (
     <>
@@ -54,7 +53,13 @@ export default function FindJobs({ handleSearch }) {
             width={{ base: "250px", sm: "300px", md: "400px" }}
           >
             <InputLeftAddon children="What" fontWeight="600" />
-            <Input type="tel" placeholder="Enter Job title" />
+            <Input
+              type="text"
+              value={query.JobTitle}
+              name="JobTitle"
+              placeholder="Enter Job title"
+              onChange={(e) => handleChange(e)}
+            />
             <InputRightElement children={<FcSearch />} />
           </InputGroup>
         </Box>
@@ -65,14 +70,15 @@ export default function FindJobs({ handleSearch }) {
               placeholder="City name (Keep first letter Capital)"
               type="text"
               name="companyLocation"
-              onChange={handleChange}
+              value={query.companyLocation}
+              onChange={(e) => handleChange(e)}
             />
-            <InputRightElement  />
+            <InputRightElement />
           </InputGroup>
         </Box>
         <Box width={{ base: "250px", sm: "300px", md: "fit-content" }}>
           <Button
-             colorScheme='facebook'
+            colorScheme="facebook"
             // color="white"
             rightIcon={<SearchIcon />}
             onClick={() => handleSearch(query)}
@@ -96,7 +102,7 @@ export default function FindJobs({ handleSearch }) {
           <span>Your next hire is here</span>
         </HStack>
         <br />
-        <FilterJob />
+        <FilterJob page={page} />
       </VStack>
 
       <hr />

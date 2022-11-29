@@ -15,68 +15,23 @@ import {
   Button,
   Grid,
 } from "@chakra-ui/react";
+import axios from "axios";
 import { useContext } from "react";
 import { useState } from "react";
 import { FILTER_ACTION, LOADING_ACTION } from "../JobContext/action";
 import { JobContext } from "../JobContext/JobContext";
 import { HomepageDataCall } from "./ApiCalls";
 
-export default function FilterJob() {
+export default function FilterJob({ page }) {
   const { state, dispatch } = useContext(JobContext);
 
-  const handlefilter1 = (e) => {
+  const handlefilter = (e) => {
     const value = e.target.value;
     dispatch(LOADING_ACTION);
-    HomepageDataCall({ limit: 10, category_1: value }).then((res) =>
-      dispatch(FILTER_ACTION(res.data))
-    );
+    axios
+      .get(`http://localhost:8080/job?q=${value}&page=${page}&limit=${10}`)
+      .then((res) => dispatch(FILTER_ACTION(res.data)));
   };
-
-  const handlefilter2 = (e) => {
-    const value = e.target.value;
-    dispatch(LOADING_ACTION);
-    HomepageDataCall({ limit: 10, category_2: value }).then((res) =>
-      dispatch(FILTER_ACTION(res.data))
-    );
-  };
-  const handlefilter3 = (e) => {
-    const value = e.target.value;
-    dispatch(LOADING_ACTION);
-    HomepageDataCall({ limit: 10, label: value }).then((res) =>
-      dispatch(FILTER_ACTION(res.data))
-    );
-  };
-  const handlefilter4 = (e) => {
-    const value = e.target.value;
-    dispatch(LOADING_ACTION);
-    HomepageDataCall({ limit: 10, ialbl: value }).then((res) =>
-      dispatch(FILTER_ACTION(res.data))
-    );
-  };
-  const handlefilter5 = (e) => {
-    const value = e.target.value;
-    dispatch(LOADING_ACTION);
-    HomepageDataCall({ date: value }).then((res) =>
-      dispatch(FILTER_ACTION(res.data))
-    );
-  };
-
-  // dispatch(FILTER_ACTION(res.data) urgentlyHiring
-  const handlefilter6 = (e) => {
-    const value = e.target.value;
-    dispatch(LOADING_ACTION);
-    HomepageDataCall({ limit: 10, urgentlyHiring: value }).then((res) =>
-      dispatch(FILTER_ACTION(res.data))
-    );
-  };
-  const handlefilter7 = (e) => {
-    const value = e.target.value;
-    dispatch(LOADING_ACTION);
-    HomepageDataCall({ limit: 10, date_3: value }).then((res) =>
-      dispatch(FILTER_ACTION(res.data))
-    );
-  };
-
   return (
     <>
       <Grid
@@ -92,11 +47,11 @@ export default function FilterJob() {
             as={Button}
             bg="blackAlpha.300"
             rightIcon={<ChevronDownIcon />}
-            onCLick={handlefilter1}
+            onCLick={handlefilter}
           >
             Job Type
           </MenuButton>
-          <MenuList onClick={handlefilter1}>
+          <MenuList onClick={handlefilter}>
             <MenuItem name="category_1" value="Full-time">
               Full Time
             </MenuItem>
@@ -119,7 +74,7 @@ export default function FilterJob() {
           >
             Shift-wise
           </MenuButton>
-          <MenuList onClick={handlefilter2}>
+          <MenuList onClick={handlefilter}>
             <MenuItem name="category_2" value="Morning shift">
               Morning shift
             </MenuItem>
@@ -149,7 +104,7 @@ export default function FilterJob() {
           >
             New Jobs
           </MenuButton>
-          <MenuList onClick={handlefilter3}>
+          <MenuList onClick={handlefilter}>
             <MenuItem name="label" value="new">
               New Jobs
             </MenuItem>
@@ -163,7 +118,7 @@ export default function FilterJob() {
           >
             Indeed jobs
           </MenuButton>
-          <MenuList onClick={handlefilter4}>
+          <MenuList onClick={handlefilter}>
             <MenuItem name="ialbl" value="Apply securely with Indeed Resume">
               New Jobs
             </MenuItem>
@@ -177,7 +132,7 @@ export default function FilterJob() {
           >
             Date Posted
           </MenuButton>
-          <MenuList onClick={handlefilter5}>
+          <MenuList onClick={handlefilter}>
             <MenuItem name="date" value="Posted 2 days ago">
               Posted 2 days ago
             </MenuItem>
@@ -203,7 +158,7 @@ export default function FilterJob() {
           >
             Based on Hiring
           </MenuButton>
-          <MenuList onClick={handlefilter6}>
+          <MenuList onClick={handlefilter}>
             <MenuItem name="urgentlyHiring" value="Urgently hiring">
               Urgently hiring
             </MenuItem>
@@ -220,7 +175,7 @@ export default function FilterJob() {
           >
             WFH jobs
           </MenuButton>
-          <MenuList onClick={handlefilter7}>
+          <MenuList onClick={handlefilter}>
             <MenuItem name="date_3" value="Work From Home ₹2,30,000">
               Work From Home
             </MenuItem>
